@@ -289,15 +289,20 @@ footer h3{
 
 /* Agrego estilos a Reservas */
 
-.formulario-reservas{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 70vh;
-    color: black;
-    background-color: rgb(245, 239, 233);
+.seccion-formulario{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    height: 85vh !important;
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 10%;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    margin-top: 2%;
 }
+
 
 
 @media (min-width: 720px){
