@@ -289,6 +289,14 @@ footer h3{
 
 /* Agrego estilos a Reservas */
 
+main{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rebeccapurple;
+    height: 150vh;
+    margin-bottom: 2%;
+}
+
 .seccion-formulario{
     display: flex !important;
     flex-direction: column !important;
@@ -301,8 +309,21 @@ footer h3{
     top: 10%;
     left: 10%;
     margin-top: 2%;
+    max-width: 500px;
+    background-color: rgb(201, 191, 191);
 }
 
+.titulo-formulario{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2%;
+    padding: 2%;
+}
+
+.texto-reservas{
+    display: none;
+}
 
 
 @media (min-width: 720px){
@@ -415,6 +436,9 @@ footer h3{
         display: flex !important;
         justify-content: right !important;
     }
+
+    /* Media Query Reservanos */
+
 }
 
 
