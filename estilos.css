@@ -289,26 +289,26 @@ footer h3{
 
 /* Agrego estilos a Reservas */
 
-main{
-    display: flex;
-    flex-wrap: wrap;
+.container-main{
+    display: grid;
     background-color: rebeccapurple;
-    height: 150vh;
-    margin-bottom: 2%;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "seccion-formulario";
 }
 
 .seccion-formulario{
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    height: 85vh !important;
+    grid-area: seccion-formulario;
+    height: 80vh;
     width: 80%;
     border: 2px solid black;
     border-radius: 10%;
-    position: fixed;
-    top: 10%;
+    position: relative;
     left: 10%;
-    margin-top: 2%;
+    right: 10%;
+    top: 15%;
     max-width: 500px;
     background-color: rgb(201, 191, 191);
 }
@@ -317,8 +317,16 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 2%;
-    padding: 2%;
+    margin: 5%;
+}
+
+#formulario{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-content: center !important;
+    justify-items: center;
+    height: 60vh;
 }
 
 .texto-reservas{
@@ -439,6 +447,7 @@ main{
 
     /* Media Query Reservanos */
 
+    
 }
 
 

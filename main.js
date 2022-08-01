@@ -3,47 +3,6 @@ ScrollReveal().reveal('.dina', {delay: 50});
 ScrollReveal().reveal('#nuestra-carta', {delay: 50});
 
 
-/*
-//Hace tu reserva
-let diaReserva = prompt("Ingresa el día que queres reservar (dd/mm)")
-let cantidadReserva = Number(prompt("Ingresa la cantidad de personas"))
-const capacidadMaxima = 15
-let ocupacion = []
-let variableCheck = true
-
-let consistenciaFecha = (diaReserva) =>{
-    if(diaReserva.length != 5){
-        alert("Por favor asegurate de seleccionar una fecha con el formato dd/mm")
-        variableCheck = false
-    }
-}
-
-let checkCantidad = (cantidadReserva, capacidadMaxima) => {
-    if(cantidadReserva >= capacidadMaxima){
-        alert("Disculpa, pero no hacemos reservas para tanta gente")
-        variableCheck = false
-    }
-}
-
-let reservar = (diaReserva, cantidadReserva) => {
-    if(variableCheck == true){
-        ocupacion.push({dia: diaReserva, cantidad: cantidadReserva})
-        alert(`Tu reserva para el día ${diaReserva} fue realizada con exito`)
-    }
-}
-
-console.log(diaReserva.length)
-
-
-consistenciaFecha(diaReserva)
-console.log(variableCheck)
-checkCantidad(cantidadReserva, capacidadMaxima)
-reservar(diaReserva, cantidadReserva)
-
-console.log(ocupacion)
-
-*/
-
 //Form de contacto
 
 const formulario = document.querySelector("#formulario")
@@ -55,6 +14,9 @@ const inputFecha = document.querySelector("#inputFecha")
 const inputHorario = document.querySelector("#inputHorario")
 
 const reservas = []
+const ocupacionMax = 15
+let disponibilidad = true
+
 
 class Reservar {
     constructor(nombre, apellido, telefono, cantidad, fecha, horario){
@@ -67,22 +29,52 @@ class Reservar {
     }
 }
 
-console.log(reservas)
+//Funcion para contar chequear capacidad
+function sumarOcupacion(arrayPrueba, fechaCapacidad, horarioCapacidad){
+    let ocupacion = 0
+    for(let i = 0; i < arrayPrueba.length; i++){
+        if(arrayPrueba[i].fecha == fechaCapacidad && arrayPrueba[i].horario == horarioCapacidad){
+            ocupacion = ocupacion + arrayPrueba[i].cantidad
+        }
+    }
+    if(ocupacion <= ocupacionMax){
+        disponibilidad = true
+    }else{
+        disponibilidad = false
+    }
+    return disponibilidad
+}
+
+
+
+
 
 formulario.onsubmit = (event) =>{
     event.preventDefault()
     console.log(event)
-    reservas.push(new Reservar(inputNombre.value, inputApellido.value, inputTelefono.value, inputCantidad.value, inputFecha.value, inputHorario.value))
+    //Hago el push y el pop para que se ejecute la funcion sumarOcupacion y haga bien la validacion despues
+    reservas.push(new Reservar(inputNombre.value, inputApellido.value, inputTelefono.value, Number(inputCantidad.value), inputFecha.value, inputHorario.value))
+    sumarOcupacion(reservas, inputFecha.value, inputHorario.value)
+    reservas.pop()
+    //Check de Vacios y Capacidad
+    if(inputNombre.value.length == 0 || inputNombre.value === `Por favor ingresa un nombre` ){
+        inputNombre.value = `Por favor ingresa un nombre`
+        inputNombre.style.color = "red"
+    }else if(inputApellido.value.length == 0 || inputApellido.value === `Por favor ingresa un apellido`){
+        inputApellido.value = `Por favor ingresa un apellido`
+        inputApellido.style.color = "red"
+    }else if(inputTelefono.value.length == 0 || inputTelefono.value === `Por favor ingresa un telefono`){
+        inputTelefono.value = `Por favor ingresa un telefono`
+        inputTelefono.style.color = "red"
+    }else if(disponibilidad == true){
+        reservas.push(new Reservar(inputNombre.value, inputApellido.value, inputTelefono.value, Number(inputCantidad.value), inputFecha.value, inputHorario.value))
+        alert(`Gracias ${inputNombre.value} por tu reserva`)
+    }else{
+        alert(`Perdon pero ya estamos llenos el día ${inputFecha.value} a las ${inputHorario.value}`)
+    }
+
     console.log(reservas)
 }
 
-/*
-this.apellido = apellido;
-        this.telefono = telefono;
-        this.cantidad = cantidad;
-        this.fecha = fecha;
-        this.horario = horario;
 
-constructor(nombre, apellido, telefono, cantidad, fecha, horario)
 
-*/

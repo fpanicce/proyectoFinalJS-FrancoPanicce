@@ -45,7 +45,7 @@
         <div class="titulo-formulario">
           <h1>¿Venis a tomar un Vinito?</h1>
         </div>
-        <form id="formulario">
+        <form id="formulario" class="container-fluid">
           <div class="mb-3 mx-2">
             <label for="inputNombre" class="form-nombre">Nombre</label>
             <input type="text" class="form-control" id="inputNombre" aria-describedby="name">
@@ -62,23 +62,43 @@
             <div id="telefono" class="form-text"></div>
           </div>
           <div class="mb-3 mx-2">
-            <label for="inputCantPersonas" class="form-cantidad">Cantidad Personas</label>
-            <input type="number" class="form-control" id="inputCantPersonas" aria-describedby="cantPersonas">
-            <div id="cantPersonas" class="form-text"></div>
+            <label for="inputCantidad" class="form-cantidad">Cantidad</label>
+            <select class="form-select" type = "number" aria-label="Default select example" id="inputCantPersonas">
+              <option value= 1 >1</option>
+              <option value= 2 >2</option>
+              <option value= 3 >3</option>
+              <option value= 4 >4</option>
+              <option value= 5 >5</option>
+              <option value= 6 >6</option>
+              <option value= 7 >7</option>
+              <option value= 8 >8</option>
+              <option value= 9 >9</option>
+              <option value= 10 >10</option>
+              <option value= 11 >11</option>
+              <option value= 12 >12</option>
+              <option value= 13 >13</option>
+              <option value= 14 >14</option>
+              <option value= 15 >15</option>
+            </select>
           </div>
           <div class="mb-3 mx-2">
-            <label for="inputFecha" class="form-fecha">Fecha Reserva</label>
-            <input type="text" class="form-control" id="inputFecha" aria-describedby="fecha">
-            <div id="fecha" class="form-text"></div>
+            <label for="inputFecha" class="form-fecha">Fecha</label>
+            <select class="form-select" type = "text" aria-label="Default select example" id="inputFecha">
+              <option value= "30/07/2022" >30/07/2022</option>
+              <option value= "31/07/2022" >31/07/2022</option>
+            </select>
           </div>
           <div class="mb-3 mx-2">
-            <label for="inputHorario" class="form-">Horario</label>
-            <input type="text" class="form-control" id="inputHorario" aria-describedby="horario">
-            <div id="horario" class="form-text"></div>
-          </div>
-          <div class="mb-3 mx-2 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">¿Queres recibir emails con ofertas?</label>
+            <label for="inputHorario" class="form-horario">Horario</label>
+            <select class="form-select" type = "text" aria-label="Default select example" id="inputHorario">
+              <option value= "20:00hs" >20:00hs</option>
+              <option value= "20:30hs" >20:30hs</option>
+              <option value= "21:00hs" >21:00hs</option>
+              <option value= "21:30hs" >21:30hs</option>
+              <option value= "22:00hs" >22:00hs</option>
+              <option value= "22:30hs" >22:30hs</option>
+              <option value= "23:00hs" >23:00hs</option>
+            </select>
           </div>
           <input type="submit" class="btn btn-primary mx-2" value="Enviar" id="submit">
         </form>
