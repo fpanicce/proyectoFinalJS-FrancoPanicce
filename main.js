@@ -68,13 +68,12 @@ formulario.onsubmit = (event) =>{
         inputTelefono.style.color = "red"
     }else if(disponibilidad == true){
         reservas.push(new Reservar(inputNombre.value, inputApellido.value, inputTelefono.value, Number(inputCantidad.value), inputFecha.value, inputHorario.value))
-        alert(`Gracias ${inputNombre.value} por tu reserva`)
+        congrats.style.display = "block"
+        congratsFail.style.display = "none"
     }else{
-        alert(`Perdon pero ya estamos llenos el día ${inputFecha.value} a las ${inputHorario.value}`)
+        congratsFail.style.display = "block"
+        congrats.style.display = "none"
     }
 
     console.log(reservas)
 }
-
-
-
